@@ -24,13 +24,3 @@ class ScratchBotWithKotlin : TelegramLongPollingBotKt() {
         execute(action)
     }
 }
-
-private interface Action {
-    fun createExecutableForChat(chatId: Long): BotApiMethod<out BotApiObject>
-}
-
-private class UpdateHandler : Action {
-    override fun createExecutableForChat(chatId: Long): BotApiMethod<out BotApiObject> {
-        return SendMessage()
-    }
-}
